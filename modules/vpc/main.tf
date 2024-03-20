@@ -35,3 +35,7 @@ resource "aws_internet_gateway" "gw" {
     Name = "${var.env}-igw"
   }
 }
+
+resource "aws_eip" "ngw" {
+    domain   = "vpc"
+}
