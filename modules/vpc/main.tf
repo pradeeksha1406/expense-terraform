@@ -6,6 +6,15 @@ resource "aws_vpc" "main" {
   }
 }
 
+resource "aws_vpc_peering_connection" "foo" {
+  peer_owner_id = var.account_no
+  peer_vpc_id   = var.default_vpc_id
+  vpc_id        = aws_vpc.main.id
+  auto_accept   = true
+  tags = {
+    Name= "perring-from-default-vpc-to-${var.env}-vpc"
+}
+
 resource "aws_subnet" "public_subnets" {
   count = length(var.public_subnets)
   vpc_id = aws_vpc.main.id
