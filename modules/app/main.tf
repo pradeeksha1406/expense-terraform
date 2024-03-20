@@ -52,6 +52,7 @@ resource "aws_autoscaling_group" "asg" {
   desired_capacity    = 1
   max_size            = 1
   min_size            = 1
+  vpc_zone_identifier = var.subnets
 
 
   launch_template {
