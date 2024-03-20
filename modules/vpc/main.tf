@@ -14,6 +14,7 @@ resource "aws_vpc_peering_connection" "peering" {
   tags          = {
     Name = "perring-from-default-vpc-to-${var.env}-vpc"
   }
+}
 
   resource "aws_subnet" "public_subnets" {
     count             = length(var.public_subnets)
@@ -85,4 +86,4 @@ resource "aws_vpc_peering_connection" "peering" {
       Name = "private"
     }
   }
-}
+
