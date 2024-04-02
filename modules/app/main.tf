@@ -42,6 +42,7 @@ resource "aws_launch_template" "template" {
     roles_name = var.component
   })
 
+
   tag_specifications {
     resource_type = "instance"
 
