@@ -47,7 +47,7 @@ resource "aws_launch_template" "template" {
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.security_group.id]
   user_data              = base64encode(templatefile("${path.module}/userdata.sh", {
-    role_name = var.component
+    roles_name = var.component
   }))
 
 
