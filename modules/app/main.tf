@@ -42,14 +42,13 @@ resource "aws_security_group" "security_group" {
 resource "aws_iam_role" "role" {
   name = "${var.env}-${var.component}-role"
 
-
   assume_role_policy = jsonencode({
-    Version   = "2012-10-17"
+    Version = "2012-10-17"
     Statement = [
       {
-        Action    = "sts:AssumeRole"
-        Effect    = "Allow"
-        Sid       = ""
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Sid    = ""
         Principal = {
           Service = "ec2.amazonaws.com"
         }
@@ -78,10 +77,10 @@ resource "aws_iam_role" "role" {
         }
       ]
     })
+  }
 
-    tags = {
-      tag-key = "${var.env}-${var.component}-role"
-    }
+  tags = {
+    tag-key = "${var.env}-${var.component}-role"
   }
 }
 
