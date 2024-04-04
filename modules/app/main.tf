@@ -143,5 +143,4 @@ resource "aws_lb_target_group" "tg" {
     path                = "/health"
     timeout             = 3
   }
-
 }
