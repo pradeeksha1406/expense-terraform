@@ -32,6 +32,7 @@ module "private-lb" {
   vpc_id = module.vpc.vpc_id
   dns_name = "backend-${var.env}.techadda.co"
   zone_id = "Z02181513KJGBXLJM7332"
+  tg_arn = module.backend.tg_arn
 }
 #
 #module "frontend" {
