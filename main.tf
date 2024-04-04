@@ -34,18 +34,18 @@ module "private-lb" {
   zone_id = "Z02181513KJGBXLJM7332"
   tg_arn = module.backend.tg_arn
 }
-#
-#module "frontend" {
-#  source = "./modules/app"
-#  app_port = "80"
-#  component = "frontend"
-#  env = var.env
-#  instance_type = "t3.micro"
-#  vpc_cidr = var.vpc_cidr
-#  vpc_id = module.vpc.vpc_id
-#  subnets = module.vpc.private_subnets
-#  bastion_node_cidr = var.bastion_node_cidr
-#}
+
+module "frontend" {
+  source = "./modules/app"
+  app_port = "80"
+  component = "frontend"
+  env = var.env
+  instance_type = "t3.micro"
+  vpc_cidr = var.vpc_cidr
+  vpc_id = module.vpc.vpc_id
+  subnets = module.vpc.private_subnets
+  bastion_node_cidr = var.bastion_node_cidr
+}
 
 module "backend" {
   depends_on = [module.mysql]
