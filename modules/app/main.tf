@@ -94,6 +94,7 @@ resource "aws_launch_template" "template" {
   image_id               = data.aws_ami.ami.id
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.security_group.id]
+
   iam_instance_profile {
     name = aws_iam_instance_profile.instance_profile.name
   }
@@ -134,6 +135,7 @@ resource "aws_lb_target_group" "tg" {
   port     = var.app_port
   protocol = "HTTP"
   vpc_id   = var.vpc_id
+
   health_check {
     enabled             = true
     healthy_threshold   = 2
