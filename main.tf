@@ -18,7 +18,7 @@ module "public-lb" {
   alb_type = "public"
   env = var.env
   internal = false
-  subnets = module.vpc.private_subnets
+  subnets = module.vpc.public_subnets
   vpc_id = module.vpc.vpc_id
   dns_name = "frontend-${var.env}.techadda.co"
   zone_id = "Z02181513KJGBXLJM7332"
