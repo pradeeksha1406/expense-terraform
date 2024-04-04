@@ -22,15 +22,17 @@ module "vpc" {
 #  vpc_id = module.vpc.vpc_id
 #}
 #
-#module "private-lb" {
-#  source = "./modules/alb"
-#  alb_sg_allow_cidr = var.vpc_cidr
-#  alb_type = "private"
-#  env = var.env
-#  internal = true
-#  subnets = module.vpc.private_subnets
-#  vpc_id = module.vpc.vpc_id
-#}
+module "private-lb" {
+  source = "./modules/alb"
+  alb_sg_allow_cidr = var.vpc_cidr
+  alb_type = "private"
+  env = var.env
+  internal = true
+  subnets = module.vpc.private_subnets
+  vpc_id = module.vpc.vpc_id
+  dns_name = "backend-${var.env}.techadda.co"
+  zone_id = "Z02181513KJGBXLJM7332"
+}
 #
 #module "frontend" {
 #  source = "./modules/app"
