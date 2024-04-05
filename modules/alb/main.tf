@@ -64,3 +64,17 @@ resource "aws_lb_listener" "listener--http" {
   }
 
 }
+
+resource "aws_lb_listener" "listener--https" {
+  load_balancer_arn = aws_lb.alb.arn
+  port              = "443"
+  protocol          = "HTTPS"
+  ssl_policy        = "ELBSecurityPolicy-2016-08"
+  certificate_arn   = "arn:aws:acm:us-east-1:851725420695:certificate/6baef466-8596-4437-87cc-e8737d5374fc"
+
+
+  default_action {
+    type             = "forward"
+    target_group_arn = var.tg_arn
+  }
+}
