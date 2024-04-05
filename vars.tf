@@ -11,3 +11,4 @@ variable "bastion_node_cidr" {}
 variable desired_capacity {}
 variable max_size {}
 variable min_size {}
+variable "instance_class" {}

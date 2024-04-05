@@ -5,3 +5,4 @@ variable "component" {}
 variable "vpc_cidr" {}
 
 variable "subnets" {}
+variable "instance_class" {}
