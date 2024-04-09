@@ -15,3 +15,4 @@ desired_capacity       = 2
 max_size               = 10
 min_size               = 2
 instance_class         = "db.t3.medium"
+prometheus_cidr        = [ "172.31.34.169/32" ]

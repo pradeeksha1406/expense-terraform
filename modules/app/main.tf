@@ -19,6 +19,14 @@ resource "aws_security_group" "security_group" {
     cidr_blocks = var.bastion_node_cidr
   }
 
+  ingress {
+    description = "prometheus"
+    from_port   = 9100
+    to_port     = 9100
+    protocol    = "tcp"
+    cidr_blocks = var.prometheus_cidr
+  }
+
   #  ingress {
   #    description = "HTTPS"
   #    from_port   = 443
