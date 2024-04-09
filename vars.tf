@@ -12,4 +12,4 @@ variable desired_capacity {}
 variable max_size {}
 variable min_size {}
 variable "instance_class" {}
-variable "Prometheus_cidr" {}
+variable "prometheus_cidr" {}
