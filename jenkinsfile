@@ -1,0 +1,25 @@
+pipeline{
+  agent { label 'workstation' }
+
+parameters {
+             string(name: 'ENV', choices: [ 'dev' , 'prod'], description: 'choose environment')
+
+         }
+
+    stages {
+
+
+         stage('Terraform Plan') {
+           steps {
+             terraform init -backend-config=env-${ENV}/state.tfvars
+             terraform plan -var-file=env-${ENV}/inputs.tfvars
+           }
+         }
+
+         stage('Terraform Apply') {
+           steps {
+             terraform apply -var-file=env-${ENV}/inputs.tfvars -auto-approve
+           }
+         }
+    }
+}
