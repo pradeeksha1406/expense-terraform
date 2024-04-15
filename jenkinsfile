@@ -2,8 +2,7 @@ pipeline{
   agent { label 'workstation' }
 
 parameters {
-             string(name: 'ENV', choices: [ 'dev' , 'prod'], description: 'choose environment')
-
+             choice(name: 'ENV', choices: [ 'dev' , 'prod'], description: 'choose environment')
          }
 
     stages {
